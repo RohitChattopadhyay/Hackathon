@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<body onload="MapDisplayer()">
+
+<div id="mapemeb" style=" display: none">Click the button to ait 3 seconds, then alert "Hello".</div>
+
+<script>
+var myVar;
+function MapDisplayer() {
+    myVar = setTimeout(MapDisplayerSubFunction, 1000);
+}
+function MapDisplayerSubFunction() {
+  document.getElementById('mapemeb').style.display = 'inline';
+}
+</script>
+
+</body>
+</html>

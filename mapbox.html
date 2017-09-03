@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Google Maps JavaScript API v3 Example: Directions Waypoints</title>
+<style>
+    #map{
+    width: 100%;
+    height: 900px;
+}
+</style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB0JBypFjT_MSTgxWlpnPUOo686iMTyyFU"></script>
+    <script>
+function initialize() {
+
+var pos = new google.maps.LatLng(22.488381,88.333276);
+
+var myOptions = {
+    zoom: 17,
+    center: pos,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+
+var map = new google.maps.Map(document.getElementById('map'), myOptions);
+
+map.setCenter(pos);
+
+
+//FIRST POLYLINE SNAP TO ROAD
+
+//FIRST POLYLINE SNAP TO ROAD
+
+HackPathTrip1 = [
+    new google.maps.LatLng(22.487746, 88.335299),
+    new google.maps.LatLng(22.488381, 88.333276)
+    ];
+
+var traceHackPathTrip1 = new google.maps.Polyline({
+    path: HackPathTrip1,
+    strokeColor: "red",
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+});
+
+var service1 = new google.maps.DirectionsService(),traceHackPathTrip1,snap_path1=[];
+traceHackPathTrip1.setMap(map);
+for(j=0;j<HackPathTrip1.length-1;j++){
+    service1.route({origin: HackPathTrip1[j],destination: HackPathTrip1[j+1],travelMode: google.maps.DirectionsTravelMode.DRIVING},function(result, status) {
+        if(status == google.maps.DirectionsStatus.OK) {
+            snap_path1 = snap_path1.concat(result.routes[0].overview_path);
+            traceHackPathTrip1.setPath(snap_path1);
+        } else alert("Directions request failed: "+status);        
+    });
+}
+
+//SECOND POLYLINE SNAP TO ROAD
+
+HackPathTrip2 = [
+    new google.maps.LatLng(22.441309,88.406793),
+    new google.maps.LatLng(22.439633,88.409357)
+];
+
+var traceHackPathTrip2 = new google.maps.Polyline({
+    path: HackPathTrip2,
+    strokeColor: "blue",
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+});
+
+var service2 = new google.maps.DirectionsService(),traceHackPathTrip2,snap_path2=[];
+traceHackPathTrip2.setMap(map);
+for(j=0;j<HackPathTrip2.length-1;j++){
+    service2.route({origin: HackPathTrip2[j],destination: HackPathTrip2[j+1],travelMode: google.maps.DirectionsTravelMode.DRIVING},function(result, status) {
+        if(status == google.maps.DirectionsStatus.OK) {
+            snap_path2 = snap_path2.concat(result.routes[0].overview_path);
+            traceHackPathTrip2.setPath(snap_path2);
+        } else alert("Directions request failed: "+status);        
+    });
+}
+
+    };
+    window.onload = function() { initialize();};    </script>
+  </head>
+  <body>
+  <div id="map" style=""></div>
+</body>
+</html>

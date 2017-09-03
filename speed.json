@@ -1,0 +1,51 @@
+{
+  speedLimits:
+  [
+    {
+      placeId: "ChIJX12duJAwGQ0Ra0d4Oi4jOGE",
+      speedLimit: 105,
+      units: "KPH"
+    },
+    {
+      placeId: "ChIJLQcticc0GQ0RoiNZJVa5GxU",
+      speedLimit: 70,
+      units: "KPH"
+    },
+    {
+      placeId: "ChIJJ4vQRudkJA0RpednU70A-5M",
+      speedLimit: 55,
+      units: "KPH"
+    }
+  ],
+  snappedPoints:
+  [
+    {
+      location:
+      {
+        latitude: 38.75807927603043,
+        longitude: -9.037417546438084
+      },
+      originalIndex: 0,
+      placeId: "ChIJX12duJAwGQ0Ra0d4Oi4jOGE"
+    },
+    {
+      location:
+      {
+        latitude: 38.689653701836896,
+        longitude: -9.177051486847693
+      },
+      originalIndex: 1,
+      placeId: "ChIJLQcticc0GQ0RoiNZJVa5GxU"
+    },
+    {
+      location:
+      {
+        latitude: 41.13993011767777,
+        longitude: -8.609400794783655
+      },
+      originalIndex: 2,
+      placeId: "ChIJJ4vQRudkJA0RpednU70A-5M"
+    }
+  ],
+  warningMessage: "Input path is too sparse. You should provide a path where consecutive points are closer to each other. Refer to the 'path' parameter in Google Roads API documentation."
+}
